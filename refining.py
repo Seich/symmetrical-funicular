@@ -46,33 +46,33 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("Refining Calculator")
+st.title("Calculadora de Refinamiento")
 
 with st.form("calculator"):
     col11, col21, col31, col41 = st.columns(4)
 
     with col11:
-        return_rate = st.number_input("Return Rate", value=36.7)
+        return_rate = st.number_input("Tasa de Retorno", value=36.7)
     with col21:
-        return_rate_focus = st.number_input("Return Rate with Focus", value=53.9)
+        return_rate_focus = st.number_input("Tasa de Retorno con Foco", value=53.9)
     with col31:
-        fee = st.number_input("FEE", min_value=0, step=1)
+        fee = st.number_input("Precio de puesto de mercado", min_value=0, step=1)
     with col41:
-        units = st.number_input("Units", min_value=1, step=1)
+        units = st.number_input("Unidades", min_value=1, step=1)
 
     col1, col2, col3 = st.columns(3)
 
     with col11:
-        item = st.selectbox("ITEM", ["PLANKS", "STONEBLOCK", "METALBAR", "LEATHER", "CLOTH"])
+        item = st.selectbox("Item", ["PLANKS", "STONEBLOCK", "METALBAR", "LEATHER", "CLOTH"])
     with col21:
-        tier = st.selectbox("TIER", [4, 5, 6, 7, 8])
+        tier = st.selectbox("Tier", [4, 5, 6, 7, 8])
     with col31:
-        enchantment = st.selectbox("ENCHANTMENT", [0, 1, 2, 3])
+        enchantment = st.selectbox("Encantamiento", [0, 1, 2, 3])
 
     with col11:
-        st.form_submit_button("Calculate")
+        st.form_submit_button("Calcular")
     with col21:
-        with_focus = st.checkbox('With Focus')
+        with_focus = st.checkbox('con Foco')
 
 
 def main():
@@ -109,25 +109,25 @@ def main():
 
     with col3:
         if with_focus:
-            st.metric(label="Buy Order Price with focus", value="{:,.0f}".format(buy_order["buy_price_max"]),
+            st.metric(label="Precio en Orden de Compra (con Foco)", value="{:,.0f}".format(buy_order["buy_price_max"]),
                       delta="{:,.0f}".format(buy_order_profit_with_focus))
             st.text(buy_order["city"])
         else:
-            st.metric(label="Buy Order Price", value="{:,.0f}".format(buy_order["buy_price_max"]),
+            st.metric(label="Precio en Orden de Compra", value="{:,.0f}".format(buy_order["buy_price_max"]),
                       delta="{:,.0f}".format(buy_order_profit_without_focus))
             st.text(buy_order["city"])
 
     with col4:
         if with_focus:
-            st.metric(label="Sell Order Price with focus", value="{:,.0f}".format(sell_order["sell_price_min"]),
+            st.metric(label="Precio en Orden de Venta (Con Foco)", value="{:,.0f}".format(sell_order["sell_price_min"]),
                       delta="{:,.0f}".format(sell_order_profit_with_focus))
             st.text(sell_order["city"])
         else:
-            st.metric(label="Sell Order Price", value="{:,.0f}".format(sell_order["sell_price_min"]),
+            st.metric(label="Precio en Orden de Venta", value="{:,.0f}".format(sell_order["sell_price_min"]),
                       delta="{:,.0f}".format(sell_order_profit_without_focus))
             st.text(sell_order["city"])
 
-    with st.expander("Latest Price List"):
+    with st.expander("Lista de Precios mas Recientes"):
         st.dataframe(prices)
 
 
