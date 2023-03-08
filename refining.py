@@ -173,5 +173,32 @@ def main():
                       delta="{:,.0f}".format(sell_order_profit_without_focus))
             st.text(sell_order[get_key("city")])
 
+    footer = """
+    <div>
+        <style>
+            .icon {
+                text-align: center;
+                margin-top: 50px;
+                position: fixed;
+                bottom: 20px;
+                width: 100%;
+            }
+            .icon img {
+                opacity: 0.5;
+            }
+            .icon img:hover {
+                opacity: 1;
+            }
+            footer {
+                display: none;
+            }
+        </style>
+        <div class="icon">
+            <a href="https://gats.ee" target="_blank"><img height="50" src="https://els-gats.s3.amazonaws.com/uploads/images/system/2022-08/els-01.png" /></a>
+        </div>
+    </div>
+    """
+    st.markdown(footer, unsafe_allow_html=True)
+
 
 main()
