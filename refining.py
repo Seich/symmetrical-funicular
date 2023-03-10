@@ -11,7 +11,7 @@ COLUMN_KEY_NAMES = {
     'sell_price_min_date': '',
     'sell_price_max': 'Orden de Venta (Max)',
     'sell_price_max_date': '',
-    'buy_price_min': 'Orden de Compra (Min)',
+    'buy_price_min': '',
     'buy_price_min_date': '',
     'buy_price_max': 'Orden de Compra (Max)',
     'buy_price_max_date': ''
