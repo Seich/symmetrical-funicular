@@ -146,11 +146,11 @@ def main():
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-        st.metric(label=raw_resource_price[get_key("item_id")], value="{:,.0f}".format(raw_resource_price[get_key("buy_price_max")]))
+        st.metric(label=raw_resource_price[get_key("item_id")] + " × " + str(TIER_RAW_REQUIREMENTS[tier] * units), value="{:,.0f}".format(raw_resource_price[get_key("buy_price_max")]))
         st.text(raw_resource_price[get_key("city")])
 
     with col2:
-        st.metric(label=crafted_resource_price[get_key("item_id")], value="{:,.0f}".format(crafted_resource_price[get_key("buy_price_max")]))
+        st.metric(label=crafted_resource_price[get_key("item_id")] + " × " + str(units), value="{:,.0f}".format(crafted_resource_price[get_key("buy_price_max")]))
         st.text(crafted_resource_price[get_key("city")])
 
     with col3:
